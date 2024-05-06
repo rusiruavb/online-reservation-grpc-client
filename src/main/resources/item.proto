@@ -1,0 +1,66 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+import "google/protobuf/empty.proto";
+
+package org.item;
+
+service ItemService {
+  rpc AddItem(AddItemRequest) returns (AddItemResponse);
+  rpc UpdateItem(UpdateItemRequest) returns (UpdateItemResponse);
+  rpc ListItems(google.protobuf.Empty) returns (ListItemsResponse);
+  rpc RemoveItem(RemoveItemRequest) returns (RemoveItemResponse);
+  rpc UpdateQuantity(UpdateQuantityRequest) returns (UpdateItemResponse);
+}
+
+message AddItemRequest {
+  int32 itemId = 1;
+  double price = 2;
+  int32 quantity = 3;
+  string name = 4;
+  string description = 5;
+}
+
+message AddItemResponse {
+  int32 itemId = 1;
+  string name = 2;
+  int32 quantity = 3;
+}
+
+message UpdateItemRequest {
+  int32 itemId = 1;
+  double price = 2;
+  int32 quantity = 3;
+  string name = 4;
+  string description = 5;
+}
+
+message UpdateItemResponse {
+  int32 itemId = 1;
+  int32 quantity = 3;
+}
+
+message UpdateQuantityRequest {
+  int32 itemId = 1;
+  int32 quantity = 2;
+}
+
+message ListItemsResponse {
+  repeated ListItemResponse items = 1;
+}
+
+message ListItemResponse {
+  int32 itemId = 1;
+  string name = 2;
+  double price = 3;
+  int32 quantity = 4;
+  string description = 5;
+}
+
+message RemoveItemRequest {
+  int32 itemId = 1;
+}
+
+message RemoveItemResponse {
+  string message = 1;
+}
