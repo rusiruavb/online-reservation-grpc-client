@@ -28,6 +28,7 @@ public class ReservationClient {
     String host = null;
     int port = -1;
     Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) throws IOException, InterruptedException {
         ReservationClient client = new ReservationClient();
 
@@ -61,48 +62,47 @@ public class ReservationClient {
         System.out.println(WELCOME_STR);
         input = sc.nextLine().trim();
 
-        switch (input){
-            case  ONE:
+        switch (input) {
+            case ONE:
 
-                while(true){
+                while (true) {
                     boolean status = loginUser();
-                    if (status){
+                    if (status) {
                         break;
                     }
                 }
                 handleSeller();
                 break;
 
-            case  TWO:
-                while(true){
+            case TWO:
+                while (true) {
                     boolean status = loginUser();
-                    if (status){
+                    if (status) {
                         break;
                     }
                 }
                 handleClerk();
                 break;
 
-            case  THREE:
-                while(true){
+            case THREE:
+                while (true) {
                     boolean status = loginUser();
-                    if (status){
+                    if (status) {
                         break;
                     }
                 }
                 handleCustomer();
                 break;
 
-            case  STAR:
+            case STAR:
                 registerUser();
                 break;
-
 
         }
 
     }
 
-    public void registerUser(){
+    public void registerUser() {
         System.out.println(USER_USERNAME);
         String userName = sc.nextLine().trim();
         System.out.println(USER_USERROLE);
@@ -118,17 +118,15 @@ public class ReservationClient {
                 .build();
 
         CreateUserResponse createUserResponse = userServiceBlockingStub.createUser(createUserRequest);
-        System.out.println("User with username: "+createUserResponse.getUserName()+" was created");
+        System.out.println("User with username: " + createUserResponse.getUserName() + " was created");
     }
 
-    public boolean loginUser(){
-
+    public boolean loginUser() {
 
         System.out.println(USERNAME_STR);
         String userName = sc.nextLine().trim();
         System.out.println(PASSWORD_STR);
         String password = sc.nextLine().trim();
-
 
         LoginUserRequest loginUserRequest = LoginUserRequest
                 .newBuilder()
@@ -140,12 +138,12 @@ public class ReservationClient {
         return true;
     }
 
-    public  void handleSeller(){
+    public void handleSeller() {
 
         System.out.println(HANDLE_SELLER);
         String input = sc.nextLine().trim();
-        switch (input){
-            case  ONE:
+        switch (input) {
+            case ONE:
                 System.out.println(ENTER_ITEM_ID);
                 int id = Integer.parseInt(sc.nextLine().trim());
                 System.out.println(ENTER_PRICE);
@@ -170,7 +168,7 @@ public class ReservationClient {
                 System.out.println("Item " + addItemResponse.getItemId() + " was added successfully");
                 break;
 
-            case  TWO:
+            case TWO:
                 System.out.println(ENTER_UPDATED_ITEM_ID);
                 int updatedId = Integer.parseInt(sc.nextLine().trim());
                 System.out.println(ENTER_UPDATED_PRICE);
@@ -195,11 +193,11 @@ public class ReservationClient {
                 System.out.println("Item " + updateItemResponse.getItemId() + " was updated successfully");
                 break;
 
-            case  THREE:
+            case THREE:
                 System.out.println(ITEM_LIST);
                 com.google.protobuf.Empty request = com.google.protobuf.Empty.newBuilder().build();
                 ListItemsResponse listItemsResponse = itemServiceBlockingStub.listItems(request);
-                for (ListItemResponse item : listItemsResponse.getItemsList()){
+                for (ListItemResponse item : listItemsResponse.getItemsList()) {
                     System.out.println("Item ID: " + item.getItemId());
                     System.out.println("Item Name: " + item.getName());
                     System.out.println("Item Description: " + item.getDescription());
@@ -210,7 +208,7 @@ public class ReservationClient {
 
                 break;
 
-            case  FOUR:
+            case FOUR:
                 System.out.println(REMOVE_ITEM);
                 int itemId = Integer.parseInt(sc.nextLine());
                 RemoveItemRequest removeItemRequest = RemoveItemRequest
@@ -222,7 +220,7 @@ public class ReservationClient {
                 System.out.println(removeItemResponse.getMessage());
                 break;
 
-            case  FIVE:
+            case FIVE:
                 System.out.println(ENTER_ITEM_ID);
                 int updateitemId = Integer.parseInt(sc.nextLine());
                 System.out.println(ENTER_QUANTITY);
@@ -233,19 +231,21 @@ public class ReservationClient {
                         .setItemId(updateitemId)
                         .setQuantity(updateItemQuantity)
                         .build();
-                UpdateItemResponse updateQuantityItemResponse = itemServiceBlockingStub.updateQuantity(updateQuantityRequest);
-                System.out.println("Item " + updateQuantityItemResponse.getItemId() + " quantity was updated successfully");
+                UpdateItemResponse updateQuantityItemResponse = itemServiceBlockingStub
+                        .updateQuantity(updateQuantityRequest);
+                System.out.println(
+                        "Item " + updateQuantityItemResponse.getItemId() + " quantity was updated successfully");
                 break;
         }
 
     }
 
-    public  void handleClerk(){
+    public void handleClerk() {
 
         System.out.println(HANDLE_CLERK);
         String input = sc.nextLine().trim();
-        switch (input){
-            case  ONE:
+        switch (input) {
+            case ONE:
                 System.out.println(ENTER_UPDATED_ITEM_ID);
                 int updatedId = Integer.parseInt(sc.nextLine().trim());
                 System.out.println(ENTER_UPDATED_PRICE);
@@ -280,42 +280,61 @@ public class ReservationClient {
                         .setItemId(updateitemId)
                         .setQuantity(updateItemQuantity)
                         .build();
-                UpdateItemResponse updateQuantityItemResponse = itemServiceBlockingStub.updateQuantity(updateQuantityRequest);
-                System.out.println("Item " + updateQuantityItemResponse.getItemId() + " quantity was updated successfully");
+                UpdateItemResponse updateQuantityItemResponse = itemServiceBlockingStub
+                        .updateQuantity(updateQuantityRequest);
+                System.out.println(
+                        "Item " + updateQuantityItemResponse.getItemId() + " quantity was updated successfully");
                 break;
         }
 
     }
 
-    public  void handleCustomer(){
+    public void handleCustomer() {
 
         System.out.println(HANDLE_CUSTOMER);
+        String input = sc.nextLine().trim();
+        switch (input) {
+            case ONE:
+                System.out.println(ITEM_LIST);
+                com.google.protobuf.Empty request = com.google.protobuf.Empty.newBuilder().build();
+                ListItemsResponse listItemsResponse = itemServiceBlockingStub.listItems(request);
+                for (ListItemResponse item : listItemsResponse.getItemsList()) {
+                    System.out.println("Item ID: " + item.getItemId());
+                    System.out.println("Item Name: " + item.getName());
+                    System.out.println("Item Description: " + item.getDescription());
+                    System.out.println("Item Price: " + item.getPrice());
+                    System.out.println("Item Quantity: " + item.getQuantity());
+                    System.out.println("-------------------------------------------------");
+                }
+                break;
+            case TWO:
+                System.out.println(ENTER_ITEM_ID);
+                int itemId = Integer.parseInt(sc.nextLine());
+                System.out.println(ENTER_RESERVATION_DATE);
+                String reservationDate = sc.nextLine();
+                System.out.println(ENTER_PAYMENT_TYPE);
+                String type = sc.nextLine();
+                System.out.println(ENTER_PAYMENT_AMOUNT);
+                double amount = Double.parseDouble(sc.nextLine());
 
-        System.out.println(ENTER_ITEM_ID);
-        int itemId = Integer.parseInt(sc.nextLine());
-        System.out.println(ENTER_RESERVATION_DATE);
-        String reservationDate = sc.nextLine();
-        System.out.println(ENTER_PAYMENT_TYPE);
-        String type = sc.nextLine();
-        System.out.println(ENTER_PAYMENT_AMOUNT);
-        double amount = Double.parseDouble(sc.nextLine());
+                PaymentDetails paymentDetails = PaymentDetails
+                        .newBuilder()
+                        .setType(type)
+                        .setAmount(amount)
+                        .build();
 
-        PaymentDetails paymentDetails = PaymentDetails
-        .newBuilder()
-        .setType(type)
-        .setAmount(amount)
-        .build();
+                CreateReservationRequest reservationRequest = CreateReservationRequest
+                        .newBuilder()
+                        .setItemId(itemId)
+                        .setReservationDate(reservationDate)
+                        .setPaymentDetails(paymentDetails)
+                        .build();
 
-        CreateReservationRequest reservationRequest = CreateReservationRequest
-        .newBuilder()
-        .setItemId(itemId)
-        .setReservationDate(reservationDate)
-        .setPaymentDetails(paymentDetails)
-        .build();
-
-        CreateReservationResponse createReservationResponse = reservationServiceBlockingStub.createReservation(reservationRequest);
-        System.out.println(createReservationResponse.getMessage());
-
+                CreateReservationResponse createReservationResponse = reservationServiceBlockingStub
+                        .createReservation(reservationRequest);
+                System.out.println(createReservationResponse.getMessage());
+                break;
+        }
     }
 
     public void closeConnection() {

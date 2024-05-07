@@ -7,7 +7,7 @@ public class Constants {
     public static final String FOUR = "4";
     public static final String FIVE = "5";
     public static final String STAR = "*";
-    public static final String WELCOME_STR ="Enter your role:\n\t1 - Seller\n\t2 - Inventory System Clerk\n\t3 - Customer\n\nOr enter * to sign up.\n\nResponse:\n";
+    public static final String WELCOME_STR = "Enter your role:\n\t1 - Seller\n\t2 - Inventory System Clerk\n\t3 - Customer\n\nOr enter * to sign up.\n\nResponse:\n";
     public static final String USERNAME_STR = "Enter your username:\n";
     public static final String PASSWORD_STR = "Enter your password:\n";
     public static final String HANDLE_SELLER = "Thank you for logging in as a seller\nEnter the function you require to perform:\n\t1 - AddItem\n\t2 - UpdateItem\n\t3 - ListItems\n\t4 - RemoveItem\n\t5- UpdateQuantity\n\nResponse:\n";
@@ -27,10 +27,9 @@ public class Constants {
     public static final String USER_USERROLE = "Enter users user role:\n";
     public static final String USER_USERPASSWORD = "Enter users user password:\n";
     public static final String HANDLE_CLERK = "Thank you for logging in as clerk\nEnter the function you require to perform:\n\t1 - UpdateItem\n\t2- UpdateQuantity\n\nResponse:\n";
-    public static final String HANDLE_CUSTOMER = "Thank you for logging in as customer\nLets proceed with creating a reservation..";
+    public static final String HANDLE_CUSTOMER = "Thank you for logging in as customer\nEnter the function you require to perform:\n\t1 - List Items\n\t2 - Make a reservation";
     public static final String ENTER_PAYMENT_TYPE = "Enter the payment type:\n";
     public static final String ENTER_PAYMENT_AMOUNT = "Enter the payment amount:\n";
     public static final String ENTER_RESERVATION_DATE = "Enter the reservation date:\n";
-    
 
 }
