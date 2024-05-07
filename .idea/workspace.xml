@@ -7,8 +7,7 @@
     <list default="true" id="f5ce0877-4151-4c2c-b491-041fa04cabbc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservation/ReservationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservation/ReservationClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/reservation.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reservation.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservation/commons/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservation/commons/Constants.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +97,9 @@
       <workItem from="1715085063907" duration="68000" />
       <workItem from="1715088723727" duration="370000" />
       <workItem from="1715089774655" duration="131000" />
+      <workItem from="1715092861511" duration="207000" />
+      <workItem from="1715095732987" duration="253000" />
+      <workItem from="1715096895695" duration="320000" />
     </task>
     <servers />
   </component>

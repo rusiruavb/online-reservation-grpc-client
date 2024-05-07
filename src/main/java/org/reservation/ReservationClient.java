@@ -8,6 +8,8 @@ import org.nameserver.ServiceDetails;
 import org.user.LoginUserRequest;
 import org.user.LoginUserResponse;
 import org.user.UserServiceGrpc;
+import org.user.CreateUserRequest;
+import org.user.CreateUserResponse;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -22,9 +24,10 @@ public class ReservationClient {
     UserServiceGrpc.UserServiceBlockingStub userServiceBlockingStub = null;
 
     ItemServiceGrpc.ItemServiceBlockingStub itemServiceBlockingStub = null;
+
     String host = null;
     int port = -1;
-
+    Scanner sc = new Scanner(System.in);
     public static void main(String[] args) throws IOException, InterruptedException {
         ReservationClient client = new ReservationClient();
 
@@ -53,7 +56,6 @@ public class ReservationClient {
     }
 
     public void processUserRequests() {
-        Scanner sc = new Scanner(System.in);
         String input;
 
         System.out.println(WELCOME_STR);
@@ -78,7 +80,6 @@ public class ReservationClient {
                         break;
                     }
                 }
-                //todo: implement Inventory System Clerk function
                 handleClerk();
                 break;
 
@@ -89,12 +90,11 @@ public class ReservationClient {
                         break;
                     }
                 }
-                //todo: implement Customer function
                 handleCustomer();
                 break;
 
             case  STAR:
-                //todo: implement signup function
+                registerUser();
                 break;
 
 
@@ -102,8 +102,26 @@ public class ReservationClient {
 
     }
 
+    public void registerUser(){
+        System.out.println(USER_USERNAME);
+        String userName = sc.nextLine().trim();
+        System.out.println(USER_USERROLE);
+        String role = sc.nextLine().trim();
+        System.out.println(USER_USERPASSWORD);
+        String password = sc.nextLine().trim();
+
+        CreateUserRequest createUserRequest = CreateUserRequest
+                .newBuilder()
+                .setUserName(userName)
+                .setRole(role)
+                .setPassword(password)
+                .build();
+
+        CreateUserResponse createUserResponse = userServiceBlockingStub.createUser(createUserRequest);
+        System.out.println("User with username: "+createUserResponse.getUserName()+" was created");
+    }
+
     public boolean loginUser(){
-        Scanner sc = new Scanner(System.in);
 
 
         System.out.println(USERNAME_STR);
@@ -123,7 +141,6 @@ public class ReservationClient {
     }
 
     public  void handleSeller(){
-        Scanner sc = new Scanner(System.in);
 
         System.out.println(HANDLE_SELLER);
         String input = sc.nextLine().trim();
@@ -225,9 +242,79 @@ public class ReservationClient {
 
     public  void handleClerk(){
 
+        System.out.println(HANDLE_CLERK);
+        String input = sc.nextLine().trim();
+        switch (input){
+            case  ONE:
+                System.out.println(ENTER_UPDATED_ITEM_ID);
+                int updatedId = Integer.parseInt(sc.nextLine().trim());
+                System.out.println(ENTER_UPDATED_PRICE);
+                double updatedPrice = Double.parseDouble(sc.nextLine().trim());
+                System.out.println(ENTER_UPDATED_QUANTITY);
+                int updatedQuantity = Integer.parseInt(sc.nextLine().trim());
+                System.out.println(ENTER_UPDATED_NAME);
+                String updatedName = sc.nextLine().trim();
+                System.out.println(ENTER_UPDATED_DESCRIPTION);
+                String updatedDescription = sc.nextLine().trim();
+
+                UpdateItemRequest updateItemRequest = UpdateItemRequest
+                        .newBuilder()
+                        .setItemId(updatedId)
+                        .setPrice(updatedPrice)
+                        .setQuantity(updatedQuantity)
+                        .setName(updatedName)
+                        .setDescription(updatedDescription)
+                        .build();
+
+                UpdateItemResponse updateItemResponse = itemServiceBlockingStub.updateItem(updateItemRequest);
+                System.out.println("Item " + updateItemResponse.getItemId() + " was updated successfully");
+                break;
+            case TWO:
+                System.out.println(ENTER_ITEM_ID);
+                int updateitemId = Integer.parseInt(sc.nextLine());
+                System.out.println(ENTER_QUANTITY);
+                int updateItemQuantity = Integer.parseInt(sc.nextLine().trim());
+
+                UpdateQuantityRequest updateQuantityRequest = UpdateQuantityRequest
+                        .newBuilder()
+                        .setItemId(updateitemId)
+                        .setQuantity(updateItemQuantity)
+                        .build();
+                UpdateItemResponse updateQuantityItemResponse = itemServiceBlockingStub.updateQuantity(updateQuantityRequest);
+                System.out.println("Item " + updateQuantityItemResponse.getItemId() + " quantity was updated successfully");
+                break;
+        }
+
     }
 
     public  void handleCustomer(){
+
+        System.out.println(HANDLE_CUSTOMER);
+
+        System.out.println(ENTER_ITEM_ID);
+        int itemId = Integer.parseInt(sc.nextLine());
+        System.out.println(ENTER_RESERVATION_DATE);
+        String reservationDate = sc.nextLine();
+        System.out.println(ENTER_PAYMENT_TYPE);
+        String type = sc.nextLine();
+        System.out.println(ENTER_PAYMENT_AMOUNT);
+        double amount = Double.parseDouble(sc.nextLine());
+
+        PaymentDetails paymentDetails = PaymentDetails
+        .newBuilder()
+        .setType(type)
+        .setAmount(amount)
+        .build();
+
+        CreateReservationRequest reservationRequest = CreateReservationRequest
+        .newBuilder()
+        .setItemId(itemId)
+        .setReservationDate(reservationDate)
+        .setPaymentDetails(paymentDetails)
+        .build();
+
+        CreateReservationResponse createReservationResponse = reservationServiceBlockingStub.createReservation(reservationRequest);
+        System.out.println(createReservationResponse.getMessage());
 
     }
 
