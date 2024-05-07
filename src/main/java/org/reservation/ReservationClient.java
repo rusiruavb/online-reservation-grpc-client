@@ -197,6 +197,7 @@ public class ReservationClient {
                 System.out.println(ITEM_LIST);
                 com.google.protobuf.Empty request = com.google.protobuf.Empty.newBuilder().build();
                 ListItemsResponse listItemsResponse = itemServiceBlockingStub.listItems(request);
+
                 for (ListItemResponse item : listItemsResponse.getItemsList()) {
                     System.out.println("Item ID: " + item.getItemId());
                     System.out.println("Item Name: " + item.getName());
