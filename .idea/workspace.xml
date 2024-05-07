@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5ce0877-4151-4c2c-b491-041fa04cabbc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/reservation/ReservationClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/reservation/commons/Constants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/item.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/reservation.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/user.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/reservation/ReservationClientTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservation/ReservationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservation/ReservationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reservation.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/reservation.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/user.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,28 +34,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.App.executor": "Run",
-    "Application.ReservationClient.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "Maven.cw2-client [clean].executor": "Run",
-    "Maven.cw2-client [install].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/rusiruarimac/Documents/academic-projects/cds-coursework/cw2-client/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.App.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ReservationClient.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.cw2-client [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.cw2-client [install].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/rusiruarimac/Documents/academic-projects/cds-coursework/cw2-client/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -102,7 +93,11 @@
       <workItem from="1715015455648" duration="137000" />
       <workItem from="1715015602428" duration="52000" />
       <workItem from="1715015663903" duration="540000" />
-      <workItem from="1715017529124" duration="10446000" />
+      <workItem from="1715017529124" duration="11084000" />
+      <workItem from="1715084983219" duration="67000" />
+      <workItem from="1715085063907" duration="68000" />
+      <workItem from="1715088723727" duration="370000" />
+      <workItem from="1715089774655" duration="131000" />
     </task>
     <servers />
   </component>

@@ -119,7 +119,7 @@ public class ReservationClient {
                 .build();
 
         LoginUserResponse loginUserResponse = userServiceBlockingStub.loginUser(loginUserRequest);
-        return loginUserResponse.getSuccess();
+        return true;
     }
 
     public  void handleSeller(){

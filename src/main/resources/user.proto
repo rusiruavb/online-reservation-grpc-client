@@ -28,5 +28,7 @@ message LoginUserRequest {
 }
 
 message LoginUserResponse {
-  bool success = 1;
+  string userName = 1;
+  string role = 2;
+  string password = 3;
 }

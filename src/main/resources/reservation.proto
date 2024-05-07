@@ -7,76 +7,20 @@ package: define a namespace for protocol buffer definitions
 package org.reservation;
 
 service ReservationService {
-    rpc AddItem(ItemRequest) returns (ItemResponse);
-    rpc UpdateItem(ItemUpdateRequest) returns (ItemResponse);
-    rpc DeleteItem(ItemDeleteRequest) returns (ItemResponse);
-    rpc UpdateInventory(InventoryUpdateRequest) returns (InventoryUpdateResponse);
-    rpc BrowseItems(BrowseRequest) returns (BrowseResponse);
-    rpc MakeReservation(ReservationRequest) returns (ReservationResponse);
-    rpc PlaceOrder(OrderRequest) returns (OrderResponse);
+    rpc CreateReservation(CreateReservationRequest) returns (CreateReservationResponse);
 }
 
-message ItemRequest {
-    string itemName = 1;
-    double price = 2;
-    int32 quantity = 3;
+message PaymentDetails {
+    string type = 1;
+    double amount = 2;
 }
 
-message ItemUpdateRequest {
-    string itemId = 1;
-    ItemRequest updatedItem = 2;
+message CreateReservationRequest {
+    int32 itemId = 1;
+    string reservationDate = 2;
+    PaymentDetails paymentDetails = 3;
 }
 
-message ItemDeleteRequest {
-    string itemId = 1;
-}
-
-message InventoryUpdateRequest {
-    string itemId = 1;
-    int32 quantity = 2;
-}
-
-message InventoryUpdateResponse {
-    bool success = 1;
-    string message = 2;
-}
-
-message BrowseRequest {
-    string category = 1;
-    double minPrice = 2;
-    double maxPrice = 3;
-}
-
-message BrowseResponse {
-    repeated ItemResponse items = 1;
-}
-
-message ReservationRequest {
-    string itemId = 1;
-    int32 quantity = 2;
-    string customerId = 3;
-    // Other reservation details like dates, payment info, etc.
-}
-
-message ReservationResponse {
-    bool success = 1;
-    string message = 2;
-}
-
-message OrderRequest {
-    repeated ItemRequest items = 1;
-    string customerId = 2;
-    // Other order details
-}
-
-message OrderResponse {
-    bool success = 1;
-    string message = 2;
-}
-
-message ItemResponse {
-    string itemId = 1;
-    string itemName = 2;
-    double price = 3;
-    int32 quantity = 4;
+message CreateReservationResponse {
+     string message = 1;
 }
